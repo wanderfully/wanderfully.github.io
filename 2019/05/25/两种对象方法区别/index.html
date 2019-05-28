@@ -82,7 +82,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="canvas,">
+  <meta name="keywords" content="js,原型,">
 
 
 
@@ -100,18 +100,18 @@
 
 
 
-<meta name="description" content="在线demo 用法引入flaotfont.jshtml中写canvas标签 并将id赋值为 id=’canvas’ 规定画布大小1&amp;lt;canvas width=&quot;900&quot; height=&quot;300&quot; id=&apos;canvas&apos;&amp;gt;&amp;lt;/canvas&amp;gt;">
-<meta name="keywords" content="canvas">
+<meta name="description" content="原型法（可访问所有的方法和属性）通过构造函数的prototype，这种写法会将全部的prototype上的属性方法全部暴露出来：123456789101112131415(function()&amp;#123;    var Drage = function(obj)&amp;#123;        this.name = obj.name;        ......        ......    &amp;">
+<meta name="keywords" content="js,原型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas悬挂字体">
-<meta property="og:url" content="wanderfully.club/2019/05/23/canvas悬挂字体/index.html">
+<meta property="og:title" content="两种对象方法区别">
+<meta property="og:url" content="wanderfully.club/2019/05/25/两种对象方法区别/index.html">
 <meta property="og:site_name" content="&lt;div&gt;wander &lt;div&gt;写鬼写妖高人一筹&lt;&#x2F;div&gt;&lt;div&gt;刺贪刺虐入目三分&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;">
-<meta property="og:description" content="在线demo 用法引入flaotfont.jshtml中写canvas标签 并将id赋值为 id=’canvas’ 规定画布大小1&amp;lt;canvas width=&quot;900&quot; height=&quot;300&quot; id=&apos;canvas&apos;&amp;gt;&amp;lt;/canvas&amp;gt;">
+<meta property="og:description" content="原型法（可访问所有的方法和属性）通过构造函数的prototype，这种写法会将全部的prototype上的属性方法全部暴露出来：123456789101112131415(function()&amp;#123;    var Drage = function(obj)&amp;#123;        this.name = obj.name;        ......        ......    &amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-24T03:17:41.762Z">
+<meta property="og:updated_time" content="2019-05-28T02:16:37.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas悬挂字体">
-<meta name="twitter:description" content="在线demo 用法引入flaotfont.jshtml中写canvas标签 并将id赋值为 id=’canvas’ 规定画布大小1&amp;lt;canvas width=&quot;900&quot; height=&quot;300&quot; id=&apos;canvas&apos;&amp;gt;&amp;lt;/canvas&amp;gt;">
+<meta name="twitter:title" content="两种对象方法区别">
+<meta name="twitter:description" content="原型法（可访问所有的方法和属性）通过构造函数的prototype，这种写法会将全部的prototype上的属性方法全部暴露出来：123456789101112131415(function()&amp;#123;    var Drage = function(obj)&amp;#123;        this.name = obj.name;        ......        ......    &amp;">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="wanderfully.club/2019/05/23/canvas悬挂字体/">
+  <link rel="canonical" href="wanderfully.club/2019/05/25/两种对象方法区别/">
 
 
 
 
 
-  <title>canvas悬挂字体 | <div>wander <div>写鬼写妖高人一筹</div><div>刺贪刺虐入目三分</div></div></title>
+  <title>两种对象方法区别 | <div>wander <div>写鬼写妖高人一筹</div><div>刺贪刺虐入目三分</div></div></title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="wanderfully.club/2019/05/23/canvas悬挂字体/">
+    <link itemprop="mainEntityOfPage" href="wanderfully.club/2019/05/25/两种对象方法区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wander">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">canvas悬挂字体</h1>
+          <h1 class="post-title" itemprop="name headline">两种对象方法区别</h1>
         
 
         <div class="post-meta">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-23T18:33:09+08:00">
-                2019-05-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T15:34:32+08:00">
+                2019-05-25
               </time>
             
 
@@ -342,8 +342,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/canvas/" itemprop="url" rel="index">
-                    <span itemprop="name">canvas</span>
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -380,9 +380,13 @@
 
       
         <!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 -->
-<p><strong><a href="https://wanderfully.club/hangword/">在线demo</a></strong></p>
-<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>引入flaotfont.js<br>html中写canvas标签 并将id赋值为 id=’canvas’ 规定画布大小<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas width=<span class="string">"900"</span> height=<span class="string">"300"</span> id=<span class="string">'canvas'</span>&gt;&lt;/canvas&gt;</span><br></pre></td></tr></table></figure></p>
-<hr>
+<h3 id="原型法（可访问所有的方法和属性）"><a href="#原型法（可访问所有的方法和属性）" class="headerlink" title="原型法（可访问所有的方法和属性）"></a>原型法（可访问所有的方法和属性）</h3><p>通过构造函数的prototype，这种写法会将全部的prototype上的属性方法全部暴露出来：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Drage = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = obj.name;</span><br><span class="line">        ......</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br><span class="line">    Drage.prototype = &#123;</span><br><span class="line">        add:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        &#125;,</span><br><span class="line">        del:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">        .......</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.Drage = Drage;</span><br><span class="line">&#125;)(<span class="built_in">window</span>,<span class="built_in">document</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="对象法（返回指定的方法或属性）"><a href="#对象法（返回指定的方法或属性）" class="headerlink" title="对象法（返回指定的方法或属性）"></a>对象法（返回指定的方法或属性）</h3><p>如果不想将prototype上的属性和方法暴露出来，只是想暴露某一个方法或属性，并且不用什么配置的话，可以通过返回来暴露所需要的东西：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">var</span> listen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"小明"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> sing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> name = listen();</span><br><span class="line">        <span class="keyword">return</span> name+<span class="string">"在sing"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        add:add,</span><br><span class="line">        sing:sing</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p>调用方式：</p>
+<blockquote>
+<p>modoule.sing();modoule.add();</p>
+</blockquote>
+<p>listen方法没有暴露出来，所以可以自己定义想暴露出来的方法</p>
 
       
     </div>
@@ -413,7 +417,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/canvas/" rel="tag"># canvas</a>
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/原型/" rel="tag"># 原型</a>
           
         </div>
       
@@ -426,8 +432,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/22/react中px转rem或vw/" rel="next" title="react中px转rem或vw">
-                <i class="fa fa-chevron-left"></i> react中px转rem或vw
+              <a href="/2019/05/24/js中的一些小技巧/" rel="next" title="js中的一些小技巧">
+                <i class="fa fa-chevron-left"></i> js中的一些小技巧
               </a>
             
           </div>
@@ -436,8 +442,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/24/js中的一些小技巧/" rel="prev" title="js中的一些小技巧">
-                js中的一些小技巧 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/27/js常用API/" rel="prev" title="js常用API">
+                js常用API <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -638,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#用法"><span class="nav-number">1.</span> <span class="nav-text">用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型法（可访问所有的方法和属性）"><span class="nav-number">1.</span> <span class="nav-text">原型法（可访问所有的方法和属性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象法（返回指定的方法或属性）"><span class="nav-number">2.</span> <span class="nav-text">对象法（返回指定的方法或属性）</span></a></li></ol></div>
             
 
           </div>

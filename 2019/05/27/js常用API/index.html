@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="js,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="<div>wander <div>写鬼写妖高人一筹</div><div>刺贪刺虐入目三分</div></div>" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="cookie的获取、设置、删除12345678910111213141516171819202122232425262728293031323334353637383940414243cookies: &amp;#123;  //获取  get(name) &amp;#123;    let arr, reg = new RegExp(&quot;(^| )&quot; + name + &quot;=([^;]*)(;|$)&quot;);">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js常用API">
+<meta property="og:url" content="wanderfully.club/2019/05/27/js常用API/index.html">
+<meta property="og:site_name" content="&lt;div&gt;wander &lt;div&gt;写鬼写妖高人一筹&lt;&#x2F;div&gt;&lt;div&gt;刺贪刺虐入目三分&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;">
+<meta property="og:description" content="cookie的获取、设置、删除12345678910111213141516171819202122232425262728293031323334353637383940414243cookies: &amp;#123;  //获取  get(name) &amp;#123;    let arr, reg = new RegExp(&quot;(^| )&quot; + name + &quot;=([^;]*)(;|$)&quot;);">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-28T02:09:46.018Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js常用API">
+<meta name="twitter:description" content="cookie的获取、设置、删除12345678910111213141516171819202122232425262728293031323334353637383940414243cookies: &amp;#123;  //获取  get(name) &amp;#123;    let arr, reg = new RegExp(&quot;(^| )&quot; + name + &quot;=([^;]*)(;|$)&quot;);">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="wanderfully.club/2019/05/27/js常用API/">
+
+
+
+
+
+  <title>js常用API | <div>wander <div>写鬼写妖高人一筹</div><div>刺贪刺虐入目三分</div></div></title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/wanderfully" style="position:absolute;right:0;top:0;transform:rotateZ(90deg);border-bottom:none;"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"><div>wander <div>写鬼写妖高人一筹</div><div>刺贪刺虐入目三分</div></div></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="wanderfully.club/2019/05/27/js常用API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wander">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<div>wander <div>写鬼写妖高人一筹</div><div>刺贪刺虐入目三分</div></div>">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js常用API</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T18:50:49+08:00">
+                2019-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 -->
+<h3 id="cookie的获取、设置、删除"><a href="#cookie的获取、设置、删除" class="headerlink" title="cookie的获取、设置、删除"></a>cookie的获取、设置、删除</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">cookies: &#123;</span><br><span class="line">  <span class="comment">//获取</span></span><br><span class="line">  <span class="keyword">get</span>(name) &#123;</span><br><span class="line">    <span class="keyword">let</span> arr, reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(^| )"</span> + name + <span class="string">"=([^;]*)(;|$)"</span>);</span><br><span class="line">    <span class="keyword">if</span> (arr = <span class="built_in">document</span>.cookie.match(reg))</span><br><span class="line">      <span class="keyword">return</span> (arr[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 设置cookie</span></span><br><span class="line"><span class="comment">   * @param c_name 名称</span></span><br><span class="line"><span class="comment">   * @param value  值</span></span><br><span class="line"><span class="comment">   * @param time   时间，s30=30秒，h12=12小时，d7=7天</span></span><br><span class="line"><span class="comment">   * @param path   路径，默认 根 /</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">set</span>(c_name, value, time, path = '/') &#123;</span><br><span class="line">    <span class="keyword">let</span> exp = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">let</span> strSec = getSec(time);</span><br><span class="line">    exp.setTime(exp.getTime() + strSec * <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">document</span>.cookie = c_name + <span class="string">"="</span> + <span class="built_in">escape</span>(value) + (!time ? <span class="string">""</span> : <span class="string">";expires="</span> + exp.toGMTString()) + <span class="string">';path='</span> + path;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getSec</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> str1 = str.substring(<span class="number">1</span>, str.length) * <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">let</span> str2 = str.substring(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span> (str2 === <span class="string">"s"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str1 * <span class="number">1000</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (str2 === <span class="string">"h"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str1 * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (str2 === <span class="string">"d"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str1 * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//删除</span></span><br><span class="line">  del(name) &#123;</span><br><span class="line">    <span class="keyword">let</span> exp = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    exp.setTime(exp.getTime() - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">let</span> cval = <span class="keyword">this</span>.get(name);</span><br><span class="line">    <span class="keyword">if</span> (cval != <span class="literal">null</span>)</span><br><span class="line">      <span class="built_in">document</span>.cookie = name + <span class="string">"="</span> + cval + <span class="string">";expires="</span> + exp.toGMTString();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="清除空格"><a href="#清除空格" class="headerlink" title="清除空格"></a>清除空格</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">clearBank(txt) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span>  txt === <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> txt.replace(<span class="regexp">/\s/g</span>, <span class="string">''</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'请输入正确的类型'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="解码html"><a href="#解码html" class="headerlink" title="解码html"></a>解码html</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">htmlDecode(html) &#123;</span><br><span class="line">    <span class="keyword">return</span> html.replace(<span class="regexp">/(\&amp;|\&amp;)gt;/g</span>, <span class="string">"&gt;"</span>)</span><br><span class="line">        .replace(<span class="regexp">/(\&amp;|\&amp;)lt;/g</span>, <span class="string">"&lt;"</span>)</span><br><span class="line">        .replace(<span class="regexp">/(\&amp;|\&amp;)quot;/g</span>, <span class="string">"\""</span>);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="转译特殊字符"><a href="#转译特殊字符" class="headerlink" title="转译特殊字符"></a>转译特殊字符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>(str) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.isEmpty(str)) &#123;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125;</span><br><span class="line">  str = str.replace(<span class="regexp">/&amp;lt;/g</span>, <span class="string">"&lt;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/&amp;gt;/g</span>, <span class="string">"&gt;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/&amp;acute;/g</span>, <span class="string">"'"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/&amp;#45;&amp;#45;/g</span>, <span class="string">"--"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/&amp;lt;/g</span>, <span class="string">"&lt;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/&amp;lt;/g</span>, <span class="string">"&lt;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/&amp;quot;/g</span>, <span class="string">'\"'</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/&amp;acute;/g</span>, <span class="string">"\'"</span>);</span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="判断登录设备是PC还是手机"><a href="#判断登录设备是PC还是手机" class="headerlink" title="判断登录设备是PC还是手机"></a>判断登录设备是PC还是手机</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">isPc() &#123;</span><br><span class="line">    <span class="keyword">let</span> userAgentInfo = navigator.userAgent;</span><br><span class="line">    <span class="keyword">let</span> Agents = [<span class="string">"Android"</span>, <span class="string">"iPhone"</span>, <span class="string">"SymbianOS"</span>, <span class="string">"Windows Phone"</span>, <span class="string">"iPad"</span>, <span class="string">"iPod"</span>];  <span class="comment">//判断用户代理头信息</span></span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> v = <span class="number">0</span>; v &lt; Agents.length; v++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (userAgentInfo.indexOf(Agents[v]) !== <span class="number">-1</span>) &#123;</span><br><span class="line">        flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> flag;   <span class="comment">//true为pc端，false为非pc端</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="清除localstorage时-指定不清除的项"><a href="#清除localstorage时-指定不清除的项" class="headerlink" title="清除localstorage时 指定不清除的项 []"></a>清除localstorage时 指定不清除的项 []</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">clearStorage(storeKeyArr) &#123;</span><br><span class="line">    <span class="keyword">let</span> store = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(localStorage));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> store)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!storeKeyArr.includes(key))&#123;</span><br><span class="line">        localStorage.removeItem(key)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="对JSON根据某一对象的属性进行排序"><a href="#对JSON根据某一对象的属性进行排序" class="headerlink" title="对JSON根据某一对象的属性进行排序"></a>对JSON根据某一对象的属性进行排序</h3><p>json：JSON数组  attr：排序依据属性  type：默认从高到低<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">orderby(json, attr, type) &#123;</span><br><span class="line">  <span class="keyword">return</span> json.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> value1 = a[attr];</span><br><span class="line">    <span class="keyword">let</span> value2 = b[attr];</span><br><span class="line">    <span class="keyword">return</span> type === <span class="string">"down"</span> ? value1 - value2 : value2 - value1;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h3 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h3><p>fmt：格式  obj：Date对象 （yyyy-MM-dd hh:mm:ss.S）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">dateFormat(fmt, obj) &#123; <span class="comment">// author: meizz</span></span><br><span class="line">  <span class="keyword">let</span> o = &#123;</span><br><span class="line">    <span class="string">"M+"</span>: obj.getMonth() + <span class="number">1</span>, <span class="comment">// 月份</span></span><br><span class="line">    <span class="string">"d+"</span>: obj.getDate(), <span class="comment">// 日</span></span><br><span class="line">    <span class="string">"h+"</span>: obj.getHours(), <span class="comment">// 小时</span></span><br><span class="line">    <span class="string">"m+"</span>: obj.getMinutes(), <span class="comment">// 分</span></span><br><span class="line">    <span class="string">"s+"</span>: obj.getSeconds(), <span class="comment">// 秒</span></span><br><span class="line">    <span class="string">"q+"</span>: <span class="built_in">Math</span>.floor((obj.getMonth() + <span class="number">3</span>) / <span class="number">3</span>), <span class="comment">// 季度</span></span><br><span class="line">    <span class="string">"S"</span>: obj.getMilliseconds(),</span><br><span class="line">    <span class="comment">// 毫秒</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(fmt)) &#123;</span><br><span class="line">    fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (obj.getFullYear() + <span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> o) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span> + k + <span class="string">")"</span>).test(fmt)) &#123;</span><br><span class="line">      fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length == <span class="number">1</span>) ? (o[k]) : ((<span class="string">"00"</span> + o[k]).substr((<span class="string">""</span> + o[k]).length)));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fmt;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h3 id="获取指定日期的前几天或后几天"><a href="#获取指定日期的前几天或后几天" class="headerlink" title="获取指定日期的前几天或后几天"></a>获取指定日期的前几天或后几天</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">getThatDate(date, num) &#123;</span><br><span class="line">    <span class="keyword">let</span> trans_day = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">let</span> cur_date = <span class="keyword">new</span> <span class="built_in">Date</span>(date);</span><br><span class="line">    <span class="keyword">let</span> cur_year = <span class="keyword">new</span> <span class="built_in">Date</span>(date).getFullYear();</span><br><span class="line">    <span class="keyword">let</span> cur_month = cur_date.getMonth() + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> real_date = cur_date.getDate();</span><br><span class="line">    cur_month = cur_month &gt; <span class="number">9</span> ? cur_month : (<span class="string">"0"</span> + cur_month);</span><br><span class="line">    real_date = real_date &gt; <span class="number">9</span> ? real_date : (<span class="string">"0"</span> + real_date);</span><br><span class="line">    <span class="keyword">let</span> eT = cur_year + <span class="string">"-"</span> + cur_month + <span class="string">"-"</span> + real_date;</span><br><span class="line">    trans_day = <span class="keyword">this</span>.transDate(eT, num);</span><br><span class="line">    <span class="keyword">return</span> trans_day;</span><br><span class="line">&#125;,</span><br><span class="line">transDate(dateParameter, num) &#123;</span><br><span class="line">    <span class="keyword">let</span> translateDate = <span class="string">""</span>,</span><br><span class="line">        dateString = <span class="string">""</span>,</span><br><span class="line">        monthString = <span class="string">""</span>,</span><br><span class="line">        dayString = <span class="string">""</span>;</span><br><span class="line">    translateDate = dateParameter.replace(<span class="string">"-"</span>, <span class="string">"/"</span>).replace(<span class="string">"-"</span>, <span class="string">"/"</span>);</span><br><span class="line">    <span class="keyword">let</span> newDate = <span class="keyword">new</span> <span class="built_in">Date</span>(translateDate);</span><br><span class="line">    newDate = newDate.valueOf();</span><br><span class="line">    newDate = newDate + num * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">    newDate = <span class="keyword">new</span> <span class="built_in">Date</span>(newDate);</span><br><span class="line">    <span class="keyword">if</span> ((newDate.getMonth() + <span class="number">1</span>).toString().length === <span class="number">1</span>) &#123;</span><br><span class="line">        monthString = <span class="number">0</span> + <span class="string">""</span> + (newDate.getMonth() + <span class="number">1</span>).toString();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        monthString = (newDate.getMonth() + <span class="number">1</span>).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (newDate.getDate().toString().length === <span class="number">1</span>) &#123;</span><br><span class="line">        dayString = <span class="number">0</span> + <span class="string">""</span> + newDate.getDate().toString();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        dayString = newDate.getDate().toString();</span><br><span class="line">    &#125;</span><br><span class="line">    dateString = newDate.getFullYear() + <span class="string">"-"</span> + monthString + <span class="string">"-"</span> + dayString;</span><br><span class="line">    <span class="keyword">return</span> dateString;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="根据传入时间计算当前日期所在周的开始日期和结束日期"><a href="#根据传入时间计算当前日期所在周的开始日期和结束日期" class="headerlink" title="根据传入时间计算当前日期所在周的开始日期和结束日期"></a>根据传入时间计算当前日期所在周的开始日期和结束日期</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">getTimeSlot(date) &#123;</span><br><span class="line">  <span class="keyword">let</span> sWeek;  <span class="comment">//开始的星期</span></span><br><span class="line">  <span class="keyword">let</span> eWeek;  <span class="comment">//结束的星期</span></span><br><span class="line">  <span class="keyword">if</span> (date.getDay() === <span class="number">0</span>) &#123;</span><br><span class="line">    sWeek = date.getDay() + <span class="number">6</span>;</span><br><span class="line">    eWeek = date.getDay();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    sWeek = date.getDay() - <span class="number">1</span>;</span><br><span class="line">    eWeek = <span class="number">7</span> - date.getDay();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//获取开始日期</span></span><br><span class="line">  <span class="keyword">let</span> sTime = date.getTime() - sWeek * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;  <span class="comment">//获取开始星期的时间戳</span></span><br><span class="line">  <span class="keyword">let</span> startDate = <span class="keyword">new</span> <span class="built_in">Date</span>(sTime);  <span class="comment">//转换时间戳</span></span><br><span class="line">  <span class="keyword">let</span> sDate = startDate.getFullYear() + <span class="string">"年"</span> + (startDate.getMonth() + <span class="number">1</span>) + <span class="string">"月"</span> + startDate.getDate() + <span class="string">"日"</span>;</span><br><span class="line">  <span class="comment">//获取结束日期</span></span><br><span class="line">  <span class="keyword">let</span> eTime = date.getTime() + eWeek * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">let</span> endDate = <span class="keyword">new</span> <span class="built_in">Date</span>(eTime); <span class="comment">//时间戳转换</span></span><br><span class="line">  <span class="keyword">let</span> eDate = endDate.getFullYear() + <span class="string">"年"</span> + (endDate.getMonth() + <span class="number">1</span>) + <span class="string">"月"</span> + endDate.getDate() + <span class="string">"日"</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    startDate: startDate,</span><br><span class="line">    endDate: endDate,</span><br><span class="line">    sDate: sDate,</span><br><span class="line">    eDate: eDate</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="根据传入时间计算当前时间是该月份的第几周-以周日作为节点，d时间对象-必须是系统原生时间对象"><a href="#根据传入时间计算当前时间是该月份的第几周-以周日作为节点，d时间对象-必须是系统原生时间对象" class="headerlink" title="根据传入时间计算当前时间是该月份的第几周,以周日作为节点，d时间对象,必须是系统原生时间对象;"></a>根据传入时间计算当前时间是该月份的第几周,以周日作为节点，d时间对象,必须是系统原生时间对象;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">calcWeek(d) &#123;</span><br><span class="line">  <span class="keyword">let</span> now = d.getTime(); <span class="comment">//当前时间戳</span></span><br><span class="line">  <span class="keyword">let</span> res = &#123;<span class="attr">now</span>: d.getTime()&#125;; <span class="comment">//组装返回数据</span></span><br><span class="line">  <span class="keyword">let</span> oneDayLong = <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>; <span class="comment">//一天时间长度</span></span><br><span class="line">  <span class="comment">//根据当前时间获取周日</span></span><br><span class="line">  <span class="keyword">let</span> monthHead = <span class="keyword">new</span> <span class="built_in">Date</span>(d.getFullYear(), d.getMonth(), <span class="number">1</span>).getTime(); <span class="comment">//月初时间戳</span></span><br><span class="line">  <span class="keyword">let</span> monthEnd = <span class="keyword">new</span> <span class="built_in">Date</span>(d.getFullYear(), d.getMonth() + <span class="number">1</span>, <span class="number">1</span>).getTime() - <span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>; <span class="comment">//月末时间戳</span></span><br><span class="line">  <span class="keyword">let</span> wd;<span class="comment">//根据传入时间计算传入日期对应的截止时间戳</span></span><br><span class="line">  <span class="keyword">if</span> (d.getDay() === <span class="number">0</span>) &#123;</span><br><span class="line">    wd = now</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    wd = now + (<span class="number">7</span> - d.getDay()) * oneDayLong</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (wd &gt; monthEnd) &#123;</span><br><span class="line">    <span class="comment">//截止大于月底就是下月的第一周</span></span><br><span class="line">    res.week = <span class="number">1</span>;</span><br><span class="line">    res.month = <span class="keyword">new</span> <span class="built_in">Date</span>(d).getMonth() + <span class="number">2</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span>(wd).getDate() &lt;= <span class="number">7</span>) &#123;</span><br><span class="line">    <span class="comment">//截止小于7号就是本月第一周</span></span><br><span class="line">    res.week = <span class="number">1</span>;</span><br><span class="line">    res.month = <span class="keyword">new</span> <span class="built_in">Date</span>(d).getMonth() + <span class="number">1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span>(monthHead).getDay() === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">//本月一号是周一的情况下,截止除以7就是第几周</span></span><br><span class="line">    res.week = <span class="keyword">new</span> <span class="built_in">Date</span>(wd).getDate() / <span class="number">7</span>;</span><br><span class="line">    res.month = <span class="keyword">new</span> <span class="built_in">Date</span>(d).getMonth() + <span class="number">1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//截止 日期 减去第一周天数 除以7再加一就是第几周</span></span><br><span class="line">    <span class="keyword">let</span> weekDayDate = <span class="keyword">new</span> <span class="built_in">Date</span>(wd).getDate(); <span class="comment">//截止日期</span></span><br><span class="line">    <span class="keyword">let</span> firstWeekDays = <span class="keyword">new</span> <span class="built_in">Date</span>(monthHead).getDay(); <span class="comment">//当月第一周长度</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span>(monthHead).getDay() === <span class="number">0</span>) &#123;</span><br><span class="line">      firstWeekDays = <span class="number">1</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      firstWeekDays = <span class="number">8</span> - <span class="keyword">new</span> <span class="built_in">Date</span>(monthHead).getDay()</span><br><span class="line">    &#125;</span><br><span class="line">    res.week = (weekDayDate - firstWeekDays) / <span class="number">7</span> + <span class="number">1</span>;</span><br><span class="line">    res.month = <span class="keyword">new</span> <span class="built_in">Date</span>(d).getMonth() + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br></pre></td><td class="code"><pre><span class="line">uploader(obj) &#123;</span><br><span class="line">  <span class="comment">//变量定义区</span></span><br><span class="line">  <span class="keyword">let</span> config=obj;</span><br><span class="line">  <span class="comment">// const qiniuUrl = 'https://upload.qiniup.com'; //上传接口</span></span><br><span class="line">  <span class="keyword">let</span> exitMsg = &#123;&#125;; <span class="comment">//对外消息通知</span></span><br><span class="line">  <span class="keyword">let</span> proStatus = <span class="literal">true</span>;<span class="comment">//前进状态</span></span><br><span class="line">  <span class="comment">//accept属性列表</span></span><br><span class="line">  <span class="keyword">let</span> acceptList = &#123;</span><br><span class="line">    <span class="string">"3gpp"</span>: <span class="string">"audio/3gpp, video/3gpp"</span>,</span><br><span class="line">    ac3: <span class="string">"audio/ac3"</span>,</span><br><span class="line">    asf: <span class="string">"allpication/vnd.ms-asf"</span>,</span><br><span class="line">    au: <span class="string">"audio/basic"</span>,</span><br><span class="line">    css: <span class="string">"text/css"</span>,</span><br><span class="line">    csv: <span class="string">"text/csv"</span>,</span><br><span class="line">    doc: <span class="string">"application/msword"</span>,</span><br><span class="line">    dot: <span class="string">"application/msword"</span>,</span><br><span class="line">    dtd: <span class="string">"application/xml-dtd"</span>,</span><br><span class="line">    dwg: <span class="string">"image/vnd.dwg"</span>,</span><br><span class="line">    dxf: <span class="string">"image/vnd.dxf"</span>,</span><br><span class="line">    gif: <span class="string">"image/gif"</span>,</span><br><span class="line">    htm: <span class="string">"text/html"</span>,</span><br><span class="line">    html: <span class="string">"text/html"</span>,</span><br><span class="line">    jp2: <span class="string">"image/jp2"</span>,</span><br><span class="line">    jpe: <span class="string">"image/jpeg"</span>,</span><br><span class="line">    jpeg: <span class="string">"image/jpeg"</span>,</span><br><span class="line">    jpg: <span class="string">"image/jpeg"</span>,</span><br><span class="line">    js: <span class="string">"text/javascript, application/javascript"</span>,</span><br><span class="line">    json: <span class="string">"application/json"</span>,</span><br><span class="line">    mp2: <span class="string">"audio/mpeg, video/mpeg"</span>,</span><br><span class="line">    mp3: <span class="string">"audio/mpeg"</span>,</span><br><span class="line">    mp4: <span class="string">"audio/mp4, video/mp4"</span>,</span><br><span class="line">    mpeg: <span class="string">"video/mpeg"</span>,</span><br><span class="line">    mpg: <span class="string">"video/mpeg"</span>,</span><br><span class="line">    mpp: <span class="string">"application/vnd.ms-project"</span>,</span><br><span class="line">    ogg: <span class="string">"application/ogg, audio/ogg"</span>,</span><br><span class="line">    pdf: <span class="string">"application/pdf"</span>,</span><br><span class="line">    png: <span class="string">"image/png"</span>,</span><br><span class="line">    pot: <span class="string">"application/vnd.ms-powerpoint"</span>,</span><br><span class="line">    pps: <span class="string">"application/vnd.ms-powerpoint"</span>,</span><br><span class="line">    ppt: <span class="string">"application/vnd.ms-powerpoint"</span>,</span><br><span class="line">    rtf: <span class="string">"application/rtf, text/rtf"</span>,</span><br><span class="line">    svf: <span class="string">"image/vnd.svf"</span>,</span><br><span class="line">    tif: <span class="string">"image/tiff"</span>,</span><br><span class="line">    tiff: <span class="string">"image/tiff"</span>,</span><br><span class="line">    txt: <span class="string">"text/plain"</span>,</span><br><span class="line">    wdb: <span class="string">"application/vnd.ms-works"</span>,</span><br><span class="line">    wps: <span class="string">"application/vnd.ms-works"</span>,</span><br><span class="line">    xhtml: <span class="string">"application/xhtml+xml"</span>,</span><br><span class="line">    xlc: <span class="string">"application/vnd.ms-excel"</span>,</span><br><span class="line">    xlm: <span class="string">"application/vnd.ms-excel"</span>,</span><br><span class="line">    xls: <span class="string">"application/vnd.ms-excel"</span>,</span><br><span class="line">    xlt: <span class="string">"application/vnd.ms-excel"</span>,</span><br><span class="line">    xlw: <span class="string">"application/vnd.ms-excel"</span>,</span><br><span class="line">    xml: <span class="string">"text/xml, application/xml"</span>,</span><br><span class="line">    zip: <span class="string">"aplication/zip"</span>,</span><br><span class="line">    xlsx: <span class="string">"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"</span>,</span><br><span class="line">    xltx: <span class="string">"application/vnd.openxmlformats-officedocument.spreadsheetml.template"</span>,</span><br><span class="line">    potx: <span class="string">"application/vnd.openxmlformats-officedocument.presentationml.template"</span>,</span><br><span class="line">    ppsx: <span class="string">"application/vnd.openxmlformats-officedocument.presentationml.slideshow"</span>,</span><br><span class="line">    pptx: <span class="string">"application/vnd.openxmlformats-officedocument.presentationml.presentation"</span>,</span><br><span class="line">    sldx: <span class="string">"application/vnd.openxmlformats-officedocument.presentationml.slide"</span>,</span><br><span class="line">    docx: <span class="string">"application/vnd.openxmlformats-officedocument.wordprocessingml.document"</span>,</span><br><span class="line">    dotx: <span class="string">"application/vnd.openxmlformats-officedocument.wordprocessingml.template"</span>,</span><br><span class="line">    xlsm: <span class="string">"application/vnd.ms-excel.addin.macroEnabled.12"</span>,</span><br><span class="line">    xlsb: <span class="string">"application/vnd.ms-excel.sheet.binary.macroEnabled.12"</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">//创建input元素</span></span><br><span class="line">  <span class="keyword">let</span> upIpt = <span class="built_in">document</span>.createElement(<span class="string">'input'</span>);</span><br><span class="line">  <span class="keyword">let</span> body = <span class="built_in">document</span>.querySelector(<span class="string">'body'</span>);</span><br><span class="line">  upIpt.type = <span class="string">'file'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//将可接受的文件类型添加给input</span></span><br><span class="line">  <span class="keyword">if</span> (obj.hasOwnProperty(<span class="string">'accept'</span>) &amp;&amp; obj.accept.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> accetpArr = [];</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">    obj.accept.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (acceptList.hasOwnProperty(e)) &#123;</span><br><span class="line">        accetpArr.push(acceptList[e])</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        errorFn(<span class="string">'没有找到文件类型:'</span> + e);</span><br><span class="line">        flag = <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">      upIpt.accept = accetpArr.join(<span class="string">','</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  upIpt.style = <span class="string">'display:none'</span>;</span><br><span class="line">  body.appendChild(upIpt);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//监听上传元素值改变</span></span><br><span class="line">  upIpt.onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> val = upIpt.value;</span><br><span class="line">    <span class="keyword">if</span> (val) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//上传之前回调</span></span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(<span class="string">'beforeUpload'</span>)) &#123;</span><br><span class="line">        obj.beforeUpload();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//验证文件</span></span><br><span class="line">      checkFile(upIpt, obj.size);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//获取token然后开始上传</span></span><br><span class="line">      <span class="keyword">if</span> (proStatus) &#123;</span><br><span class="line">        getToken(uploadFile)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//验证文件</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">checkFile</span>(<span class="params">obj, size</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size &amp;&amp; !<span class="regexp">/^[1-9]\d*$/</span>.test(size)) &#123;</span><br><span class="line">      errorFn(<span class="string">'文件大小必须是正整数'</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> file;</span><br><span class="line">    <span class="keyword">let</span> isIE = <span class="regexp">/msie/i</span>.test(navigator.userAgent) &amp;&amp; !<span class="built_in">window</span>.opera;</span><br><span class="line">    <span class="keyword">if</span> (isIE &amp;&amp; !obj.files) &#123;</span><br><span class="line">      <span class="keyword">let</span> filePath = obj.value;</span><br><span class="line">      <span class="keyword">let</span> fileSystem = <span class="keyword">new</span> ActiveXObject(<span class="string">"Scripting.FileSystemObject"</span>);</span><br><span class="line">      file = fileSystem.GetFile(filePath);</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      file = obj.files[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">let</span>  fileSize = <span class="built_in">Math</span>.round(file.size / <span class="number">1024</span> * <span class="number">100</span>) / <span class="number">100</span>; <span class="comment">//单位为KB</span></span><br><span class="line">    <span class="keyword">if</span> (size &amp;&amp; fileSize &gt;= size) &#123;</span><br><span class="line">      errorFn(<span class="string">'上传文件不能超过:'</span> + size + <span class="string">"kb"</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(config.hasOwnProperty(<span class="string">'checkSlot'</span>))&#123;</span><br><span class="line">        <span class="keyword">if</span>(!config.checkSlot(file))&#123;</span><br><span class="line">          errorFn(<span class="string">'自定义条件验证失败'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取token</span></span><br><span class="line">  <span class="keyword">let</span> getToken = <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    <span class="comment">// 获取七牛token</span></span><br><span class="line">    <span class="comment">// xhr.open("POST", 'https://toolapi.mayte.cn/qt2', true);</span></span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded;charset=UTF-8"</span>);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Accept"</span>, <span class="string">"application/json, text/javascript, */*; q=0.01"</span>);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">"X-Requested-With"</span>, <span class="string">"XMLHttpRequest"</span>);</span><br><span class="line">    xhr.send();</span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">          fn &amp;&amp; fn(xhr.responseText)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          errorFn(<span class="string">'token获取出错,错误代码:'</span> + xhr.status)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//上传文件</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">uploadFile</span>(<span class="params">token</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> file, directory;</span><br><span class="line">    <span class="keyword">let</span> isIE = <span class="regexp">/msie/i</span>.test(navigator.userAgent) &amp;&amp; !<span class="built_in">window</span>.opera;</span><br><span class="line">    <span class="keyword">if</span> (isIE &amp;&amp; !upIpt.files) &#123;</span><br><span class="line">      <span class="keyword">let</span> filePath = upIpt.value;</span><br><span class="line">      <span class="keyword">let</span> fileSystem = <span class="keyword">new</span> ActiveXObject(<span class="string">"Scripting.FileSystemObject"</span>);</span><br><span class="line">      file = fileSystem.GetFile(filePath);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      file = upIpt.files[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> form = <span class="keyword">new</span> FormData();</span><br><span class="line">    form.append(<span class="string">'file'</span>, file);</span><br><span class="line">    form.append(<span class="string">'token'</span>, token);</span><br><span class="line">    form.append(<span class="string">'x:folder'</span>, directory);</span><br><span class="line">    <span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.open(<span class="string">'POST'</span>, qiniuUrl, <span class="literal">true</span>);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">'Accept'</span>, <span class="string">'application/json, text/javascript, */*; q=0.01'</span>);</span><br><span class="line">    xhr.upload.onprogress = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(<span class="string">'progress'</span>)) &#123;</span><br><span class="line">        obj.progress(event)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj.hasOwnProperty(<span class="string">'whatever'</span>)) &#123;</span><br><span class="line">          obj.whatever()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (obj.hasOwnProperty(<span class="string">'success'</span>)) &#123;</span><br><span class="line">            obj.success(xhr.responseText)</span><br><span class="line">          &#125;</span><br><span class="line">          upIpt.remove();<span class="comment">//移除上传标签</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          errorFn(<span class="string">'上传是出错,错误代码:'</span> + xhr.status + <span class="string">" "</span> + xhr.responseText)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.send(form) <span class="comment">//发射</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取文件类型</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getFileSuffix</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!item) <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">let</span> els = item.split(<span class="string">'.'</span>);</span><br><span class="line">    <span class="keyword">return</span> (els[els.length - <span class="number">1</span>].split(<span class="string">'-'</span>))[<span class="number">0</span>]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//虚拟点击</span></span><br><span class="line">  upIpt.click();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//抛出错误信息</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">errorFn</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">    exitMsg.status = <span class="number">0</span>;</span><br><span class="line">    exitMsg.msg = d;</span><br><span class="line">    proStatus = <span class="literal">false</span>; <span class="comment">//不再继续</span></span><br><span class="line">    upIpt.remove(); <span class="comment">//删除上传标签</span></span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(<span class="string">'fail'</span>)) &#123;</span><br><span class="line">      obj.fail(exitMsg)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(<span class="string">'whatever'</span>)) &#123;</span><br><span class="line">      obj.whatever()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="身份证验证"><a href="#身份证验证" class="headerlink" title="身份证验证"></a>身份证验证</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">decideIdcard(value) &#123;</span><br><span class="line">  <span class="keyword">if</span> (value.length === <span class="number">15</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> reg = <span class="regexp">/^[1-9][0-9]&#123;5&#125;[2-9][0-9](0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])[0-9]&#123;3&#125;$/</span>;</span><br><span class="line">    <span class="keyword">return</span> reg.test(value);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value.length === <span class="number">18</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> xiaoYan = [<span class="string">"1"</span>, <span class="string">"0"</span>, <span class="string">"X"</span>, <span class="string">"9"</span>, <span class="string">"8"</span>, <span class="string">"7"</span>, <span class="string">"6"</span>, <span class="string">"5"</span>, <span class="string">"4"</span>, <span class="string">"3"</span>, <span class="string">"2"</span>];</span><br><span class="line">    <span class="keyword">let</span> xiao = [<span class="string">"1"</span>, <span class="string">"0"</span>, <span class="string">"x"</span>, <span class="string">"9"</span>, <span class="string">"8"</span>, <span class="string">"7"</span>, <span class="string">"6"</span>, <span class="string">"5"</span>, <span class="string">"4"</span>, <span class="string">"3"</span>, <span class="string">"2"</span>];</span><br><span class="line">    <span class="keyword">let</span> yuShu = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line">    <span class="keyword">let</span> xiShu = [<span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>];</span><br><span class="line">    <span class="keyword">let</span> cardArray = value.split(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; cardArray.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">      sum += <span class="built_in">parseInt</span>(cardArray[i]) * xiShu[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> yu = sum % <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; yuShu.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (yu === yuShu[i]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (value.substring(value.length - <span class="number">1</span>).toUpperCase() === xiaoYan[i]) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="判断是否为空"><a href="#判断是否为空" class="headerlink" title="判断是否为空"></a>判断是否为空</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">isEmpty(val) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> val === <span class="string">'number'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (!val || val === <span class="literal">undefined</span> || <span class="keyword">typeof</span> val === <span class="string">'undefined'</span> || val === <span class="literal">null</span> || val === <span class="string">'undefined'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #555;font-size:14px;">---------------- &nbsp; &nbsp;  Thank you for your reading &nbsp; &nbsp; ----------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+      
+        
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/25/两种对象方法区别/" rel="next" title="两种对象方法区别">
+                <i class="fa fa-chevron-left"></i> 两种对象方法区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/28/常用正则/" rel="prev" title="常用正则">
+                常用正则 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="wander">
+          <p class="site-author-name" itemprop="name">wander</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wanderfully" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.zhangxinxu.com/" title="张鑫旭" target="_blank">张鑫旭</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的获取、设置、删除"><span class="nav-number">1.</span> <span class="nav-text">cookie的获取、设置、删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除空格"><span class="nav-number">2.</span> <span class="nav-text">清除空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解码html"><span class="nav-number">3.</span> <span class="nav-text">解码html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转译特殊字符"><span class="nav-number">4.</span> <span class="nav-text">转译特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断登录设备是PC还是手机"><span class="nav-number">5.</span> <span class="nav-text">判断登录设备是PC还是手机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除localstorage时-指定不清除的项"><span class="nav-number">6.</span> <span class="nav-text">清除localstorage时 指定不清除的项 []</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对JSON根据某一对象的属性进行排序"><span class="nav-number">7.</span> <span class="nav-text">对JSON根据某一对象的属性进行排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间格式化"><span class="nav-number">8.</span> <span class="nav-text">时间格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取指定日期的前几天或后几天"><span class="nav-number">9.</span> <span class="nav-text">获取指定日期的前几天或后几天</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据传入时间计算当前日期所在周的开始日期和结束日期"><span class="nav-number">10.</span> <span class="nav-text">根据传入时间计算当前日期所在周的开始日期和结束日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据传入时间计算当前时间是该月份的第几周-以周日作为节点，d时间对象-必须是系统原生时间对象"><span class="nav-number">11.</span> <span class="nav-text">根据传入时间计算当前时间是该月份的第几周,以周日作为节点，d时间对象,必须是系统原生时间对象;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传文件"><span class="nav-number">12.</span> <span class="nav-text">上传文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#身份证验证"><span class="nav-number">13.</span> <span class="nav-text">身份证验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断是否为空"><span class="nav-number">14.</span> <span class="nav-text">判断是否为空</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wander</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  <script src="/live2d-widget/autoload.js"></script>
+</html>
+
