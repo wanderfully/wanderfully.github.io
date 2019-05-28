@@ -1112,6 +1112,11 @@ pre .javascript .function {
   font-weight: normal;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
+.site-title>div>div {
+  font-size: 12px !important;
+  line-height: 16px;
+  color: #ccc;
+}
 .site-subtitle {
   margin-top: 10px;
   font-size: 13px;
@@ -1126,6 +1131,8 @@ pre .javascript .function {
   opacity: 0;
   position: relative;
   top: -10px;
+  color: #e5e5e5;
+  font-size: 22px;
 }
 .site-nav-toggle {
   display: none;
@@ -1869,7 +1876,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d2ff79;
+  background: #deb6fb;
 }
 .links-of-blogroll {
   font-size: 13px;
