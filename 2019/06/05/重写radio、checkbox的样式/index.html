@@ -82,7 +82,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="js,原型,">
+  <meta name="keywords" content="css,">
 
 
 
@@ -100,18 +100,18 @@
 
 
 
-<meta name="description" content="原型法（可访问所有的方法和属性）通过构造函数的prototype，这种写法会将全部的prototype上的属性方法全部暴露出来：123456789101112131415(function()&amp;#123;    var Drage = function(obj)&amp;#123;        this.name = obj.name;        ......        ......    &amp;">
-<meta name="keywords" content="js,原型">
+<meta name="description" content="往往原生的radio、checkbox的样式不是我们所期望的样式，通常我们都会给它们重写样式。这时我们可以通过伪类：checkbox来实现 1、我们先用label将radio关联起来2、隐藏radio按钮3、通过设置伪元素::before来重写radio样式  12345678910111213141516171819202122232425/*隐藏radio按钮*/input[type=&quot;ra">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="两种对象方法区别">
-<meta property="og:url" content="wanderfully.club/2019/05/25/两种对象方法区别/index.html">
+<meta property="og:title" content="重写radio、checkbox的样式">
+<meta property="og:url" content="wanderfully.club/2019/06/05/重写radio、checkbox的样式/index.html">
 <meta property="og:site_name" content="&lt;div&gt;wander&lt;div&gt;写鬼写妖高人一筹&lt;div&gt;&lt;div&gt;刺贪刺虐入目三分&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;">
-<meta property="og:description" content="原型法（可访问所有的方法和属性）通过构造函数的prototype，这种写法会将全部的prototype上的属性方法全部暴露出来：123456789101112131415(function()&amp;#123;    var Drage = function(obj)&amp;#123;        this.name = obj.name;        ......        ......    &amp;">
+<meta property="og:description" content="往往原生的radio、checkbox的样式不是我们所期望的样式，通常我们都会给它们重写样式。这时我们可以通过伪类：checkbox来实现 1、我们先用label将radio关联起来2、隐藏radio按钮3、通过设置伪元素::before来重写radio样式  12345678910111213141516171819202122232425/*隐藏radio按钮*/input[type=&quot;ra">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-28T02:16:37.470Z">
+<meta property="og:updated_time" content="2019-06-05T07:40:44.941Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="两种对象方法区别">
-<meta name="twitter:description" content="原型法（可访问所有的方法和属性）通过构造函数的prototype，这种写法会将全部的prototype上的属性方法全部暴露出来：123456789101112131415(function()&amp;#123;    var Drage = function(obj)&amp;#123;        this.name = obj.name;        ......        ......    &amp;">
+<meta name="twitter:title" content="重写radio、checkbox的样式">
+<meta name="twitter:description" content="往往原生的radio、checkbox的样式不是我们所期望的样式，通常我们都会给它们重写样式。这时我们可以通过伪类：checkbox来实现 1、我们先用label将radio关联起来2、隐藏radio按钮3、通过设置伪元素::before来重写radio样式  12345678910111213141516171819202122232425/*隐藏radio按钮*/input[type=&quot;ra">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="wanderfully.club/2019/05/25/两种对象方法区别/">
+  <link rel="canonical" href="wanderfully.club/2019/06/05/重写radio、checkbox的样式/">
 
 
 
 
 
-  <title>两种对象方法区别 | <div>wander<div>写鬼写妖高人一筹<div><div>刺贪刺虐入目三分</div></div></div></div></title>
+  <title>重写radio、checkbox的样式 | <div>wander<div>写鬼写妖高人一筹<div><div>刺贪刺虐入目三分</div></div></div></div></title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="wanderfully.club/2019/05/25/两种对象方法区别/">
+    <link itemprop="mainEntityOfPage" href="wanderfully.club/2019/06/05/重写radio、checkbox的样式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wander">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">两种对象方法区别</h1>
+          <h1 class="post-title" itemprop="name headline">重写radio、checkbox的样式</h1>
         
 
         <div class="post-meta">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T15:34:32+08:00">
-                2019-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T15:34:32+08:00">
+                2019-06-05
               </time>
             
 
@@ -342,8 +342,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -380,13 +380,10 @@
 
       
         <!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 -->
-<h3 id="原型法（可访问所有的方法和属性）"><a href="#原型法（可访问所有的方法和属性）" class="headerlink" title="原型法（可访问所有的方法和属性）"></a>原型法（可访问所有的方法和属性）</h3><p>通过构造函数的prototype，这种写法会将全部的prototype上的属性方法全部暴露出来：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Drage = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = obj.name;</span><br><span class="line">        ......</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br><span class="line">    Drage.prototype = &#123;</span><br><span class="line">        add:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        &#125;,</span><br><span class="line">        del:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">        .......</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.Drage = Drage;</span><br><span class="line">&#125;)(<span class="built_in">window</span>,<span class="built_in">document</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="对象法（返回指定的方法或属性）"><a href="#对象法（返回指定的方法或属性）" class="headerlink" title="对象法（返回指定的方法或属性）"></a>对象法（返回指定的方法或属性）</h3><p>如果不想将prototype上的属性和方法暴露出来，只是想暴露某一个方法或属性，并且不用什么配置的话，可以通过返回来暴露所需要的东西：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">var</span> listen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"小明"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> sing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> name = listen();</span><br><span class="line">        <span class="keyword">return</span> name+<span class="string">"在sing"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        add:add,</span><br><span class="line">        sing:sing</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
-<p>调用方式：</p>
-<blockquote>
-<p>modoule.sing();modoule.add();</p>
+<h3 id="往往原生的radio、checkbox的样式不是我们所期望的样式，通常我们都会给它们重写样式。这时我们可以通过伪类：checkbox来实现"><a href="#往往原生的radio、checkbox的样式不是我们所期望的样式，通常我们都会给它们重写样式。这时我们可以通过伪类：checkbox来实现" class="headerlink" title="往往原生的radio、checkbox的样式不是我们所期望的样式，通常我们都会给它们重写样式。这时我们可以通过伪类：checkbox来实现"></a>往往原生的radio、checkbox的样式不是我们所期望的样式，通常我们都会给它们重写样式。这时我们可以通过伪类：checkbox来实现</h3><blockquote>
+<p>1、我们先用label将radio关联起来<br>2、隐藏radio按钮<br>3、通过设置伪元素::before来重写radio样式</p>
 </blockquote>
-<p>listen方法没有暴露出来，所以可以自己定义想暴露出来的方法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*隐藏radio按钮*/</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="radio"]</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">clip</span>: <span class="built_in">rect</span>(0, 0, 0, 0);</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">/*默认不选中的样式*/</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="radio"]</span> + <span class="selector-tag">label</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"\a0"</span>; <span class="comment">/*不换行空格*/</span></span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>: .<span class="number">4em</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#01cd78</span>;</span><br><span class="line">    <span class="attribute">text-indent</span>: .<span class="number">15em</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1</span>; </span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">/*选中时的样式*/</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="radio"]</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">label</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#01cd78</span>;</span><br><span class="line">    <span class="attribute">background-clip</span>: content-box;</span><br><span class="line">    <span class="attribute">padding</span>: .<span class="number">2em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -417,9 +414,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js/" rel="tag"># js</a>
-          
-            <a href="/tags/原型/" rel="tag"># 原型</a>
+            <a href="/tags/css/" rel="tag"># css</a>
           
         </div>
       
@@ -432,8 +427,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/24/js中的一些小技巧/" rel="next" title="js中的一些小技巧">
-                <i class="fa fa-chevron-left"></i> js中的一些小技巧
+              <a href="/2019/06/04/es5实现es6的一些方法/" rel="next" title="es5实现es6的一些方法">
+                <i class="fa fa-chevron-left"></i> es5实现es6的一些方法
               </a>
             
           </div>
@@ -442,8 +437,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/27/js常用API/" rel="prev" title="js常用API">
-                js常用API <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/06/日记：关于电话号码验证不通过的神秘问题/" rel="prev" title="日记：关于电话号码验证不通过的神秘问题">
+                日记：关于电话号码验证不通过的神秘问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -644,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型法（可访问所有的方法和属性）"><span class="nav-number">1.</span> <span class="nav-text">原型法（可访问所有的方法和属性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象法（返回指定的方法或属性）"><span class="nav-number">2.</span> <span class="nav-text">对象法（返回指定的方法或属性）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#往往原生的radio、checkbox的样式不是我们所期望的样式，通常我们都会给它们重写样式。这时我们可以通过伪类：checkbox来实现"><span class="nav-number">1.</span> <span class="nav-text">往往原生的radio、checkbox的样式不是我们所期望的样式，通常我们都会给它们重写样式。这时我们可以通过伪类：checkbox来实现</span></a></li></ol></div>
             
 
           </div>
