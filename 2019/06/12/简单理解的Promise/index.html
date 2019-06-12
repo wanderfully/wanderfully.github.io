@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="promise,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="<div>wander<div>写鬼写妖高人一筹<div><div>刺贪刺虐入目三分</div></div>" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="以前看见Promise这个东西，不知道怎么用，总是去看别个教程的demo来理解，而且比较复杂的样子，然后似乎是理解，，但是心里面又不踏实，然后等下一次遇到或者需要用的时候发现并没有彻底弄懂，然后再去看。今天打开MDN过了一片Promise这个api，感觉别个教程写复杂了，想想还是该看文档加以自己的实践来彻底理解它。 其实最核心的思想就是通过Promise这个构造函数创建的所有实例，它都会返回一个">
+<meta name="keywords" content="promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单理解的Promise">
+<meta property="og:url" content="wanderfully.club/2019/06/12/简单理解的Promise/index.html">
+<meta property="og:site_name" content="&lt;div&gt;wander&lt;div&gt;写鬼写妖高人一筹&lt;div&gt;&lt;div&gt;刺贪刺虐入目三分&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;">
+<meta property="og:description" content="以前看见Promise这个东西，不知道怎么用，总是去看别个教程的demo来理解，而且比较复杂的样子，然后似乎是理解，，但是心里面又不踏实，然后等下一次遇到或者需要用的时候发现并没有彻底弄懂，然后再去看。今天打开MDN过了一片Promise这个api，感觉别个教程写复杂了，想想还是该看文档加以自己的实践来彻底理解它。 其实最核心的思想就是通过Promise这个构造函数创建的所有实例，它都会返回一个">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-12T07:49:47.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单理解的Promise">
+<meta name="twitter:description" content="以前看见Promise这个东西，不知道怎么用，总是去看别个教程的demo来理解，而且比较复杂的样子，然后似乎是理解，，但是心里面又不踏实，然后等下一次遇到或者需要用的时候发现并没有彻底弄懂，然后再去看。今天打开MDN过了一片Promise这个api，感觉别个教程写复杂了，想想还是该看文档加以自己的实践来彻底理解它。 其实最核心的思想就是通过Promise这个构造函数创建的所有实例，它都会返回一个">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="wanderfully.club/2019/06/12/简单理解的Promise/">
+
+
+
+
+
+  <title>简单理解的Promise | <div>wander<div>写鬼写妖高人一筹<div><div>刺贪刺虐入目三分</div></div></div></div></title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/wanderfully" style="position:absolute;right:0;top:0;transform:rotateZ(90deg);border-bottom:none;"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"><div>wander<div>写鬼写妖高人一筹<div><div>刺贪刺虐入目三分</div></div></div></div></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="wanderfully.club/2019/06/12/简单理解的Promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wander">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<div>wander<div>写鬼写妖高人一筹<div><div>刺贪刺虐入目三分</div></div>">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">简单理解的Promise</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-12T11:37:20+08:00">
+                2019-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 -->
+<h3 id="以前看见Promise这个东西，不知道怎么用，总是去看别个教程的demo来理解，而且比较复杂的样子，然后似乎是理解，，但是心里面又不踏实，然后等下一次遇到或者需要用的时候发现并没有彻底弄懂，然后再去看。今天打开MDN过了一片Promise这个api，感觉别个教程写复杂了，想想还是该看文档加以自己的实践来彻底理解它。"><a href="#以前看见Promise这个东西，不知道怎么用，总是去看别个教程的demo来理解，而且比较复杂的样子，然后似乎是理解，，但是心里面又不踏实，然后等下一次遇到或者需要用的时候发现并没有彻底弄懂，然后再去看。今天打开MDN过了一片Promise这个api，感觉别个教程写复杂了，想想还是该看文档加以自己的实践来彻底理解它。" class="headerlink" title="以前看见Promise这个东西，不知道怎么用，总是去看别个教程的demo来理解，而且比较复杂的样子，然后似乎是理解，，但是心里面又不踏实，然后等下一次遇到或者需要用的时候发现并没有彻底弄懂，然后再去看。今天打开MDN过了一片Promise这个api，感觉别个教程写复杂了，想想还是该看文档加以自己的实践来彻底理解它。"></a>以前看见<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener"><strong>Promise</strong></a>这个东西，不知道怎么用，总是去看别个教程的demo来理解，而且比较复杂的样子，然后似乎是理解，，但是心里面又不踏实，然后等下一次遇到或者需要用的时候发现并没有彻底弄懂，然后再去看。今天打开MDN过了一片Promise这个api，感觉别个教程写复杂了，想想还是该看文档加以自己的实践来彻底理解它。</h3><blockquote>
+<p>其实最核心的思想就是通过Promise这个构造函数创建的所有实例，它都会返回一个promise对象，它带有resolve回调的then()方法，和reject回调的catch()方法，还有无论成功与失败都会执行的finnaly()方法。最后你想怎么玩它怎么玩它。</p>
+</blockquote>
+<h3 id="首先来看Promise构造函数，它的形参是两个回调方法，一个resolve（成功情况），一个reject（失败情况），该构造函数所创建的实例会返回一个promise对象，该对象包括then-、catch-、finally-方法，"><a href="#首先来看Promise构造函数，它的形参是两个回调方法，一个resolve（成功情况），一个reject（失败情况），该构造函数所创建的实例会返回一个promise对象，该对象包括then-、catch-、finally-方法，" class="headerlink" title="首先来看Promise构造函数，它的形参是两个回调方法，一个resolve（成功情况），一个reject（失败情况），该构造函数所创建的实例会返回一个promise对象，该对象包括then()、catch()、finally()方法，"></a>首先来看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener"><strong>Promise</strong></a>构造函数，它的形参是两个回调方法，一个resolve（成功情况），一个reject（失败情况），该构造函数所创建的实例会返回一个promise对象，该对象包括then()、catch()、finally()方法，</h3><ul>
+<li>then()：成功时，第一个参数‘resolve’的回调</li>
+<li>catch()：失败时,是第二个参数‘reject’的回调</li>
+<li>finally：无论成功失败都执行</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            resolve(&#123;</span><br><span class="line">                name:<span class="string">"wander"</span>,</span><br><span class="line">                age:<span class="number">18</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,<span class="number">3000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="built_in">console</span>.log(promise1)</span><br><span class="line">promise1.then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)<span class="comment">//执行了这里</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;).finally(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"无论成功与否"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="静态方法-Promise-resolve-value-，Promise-resolve-直接回调了resovle成功方法，然后返回一个promise对象-该对象通过then-可获取回调的值。"><a href="#静态方法-Promise-resolve-value-，Promise-resolve-直接回调了resovle成功方法，然后返回一个promise对象-该对象通过then-可获取回调的值。" class="headerlink" title="静态方法 Promise.resolve(value)，Promise.resolve 直接回调了resovle成功方法，然后返回一个promise对象,该对象通过then() 可获取回调的值。"></a>静态方法 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve" target="_blank" rel="noopener"><strong>Promise.resolve(value)</strong></a>，Promise.resolve 直接回调了resovle成功方法，然后返回一个promise对象,该对象通过then() 可获取回调的值。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise2 = <span class="built_in">Promise</span>.resolve(<span class="string">"成功"</span>)</span><br><span class="line"></span><br><span class="line">promise2.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)<span class="comment">//成功</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)<span class="comment">// “可以这样写” 注意 then() 里面可以接受2个参数（你可以打印一下then这个方法），第一个是成功的方法回调，第二个是失败的方法回调，但是catch() 里面只接受一个参数 这里失败不会被调用</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="静态方法Promise-reject-value-，Promise-reject-直接回调了reject失败方法，然后返回一个promise对象，该对象通过catch-可获取回调的值"><a href="#静态方法Promise-reject-value-，Promise-reject-直接回调了reject失败方法，然后返回一个promise对象，该对象通过catch-可获取回调的值" class="headerlink" title="静态方法Promise.reject(value)，Promise.reject 直接回调了reject失败方法，然后返回一个promise对象，该对象通过catch() 可获取回调的值"></a>静态方法<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject" target="_blank" rel="noopener"><strong>Promise.reject(value)</strong></a>，Promise.reject 直接回调了reject失败方法，然后返回一个promise对象，该对象通过catch() 可获取回调的值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise3 = <span class="built_in">Promise</span>.reject(<span class="string">"失败"</span>)</span><br><span class="line"><span class="comment">//可直接调用catch方法</span></span><br><span class="line">promise3.catch(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)<span class="comment">//失败</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//或者这样写 第二个是返回失败的原因</span></span><br><span class="line">promise3.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)<span class="comment">//不会被调用</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error)<span class="comment">//失败</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="静态方法Promise-race-iterable-，迭代器中是promise实例-方法返回一个promise，一单迭代器中的某一个promise成功或者失败，返回的promise就会成功或失败。"><a href="#静态方法Promise-race-iterable-，迭代器中是promise实例-方法返回一个promise，一单迭代器中的某一个promise成功或者失败，返回的promise就会成功或失败。" class="headerlink" title="静态方法Promise.race(iterable)，迭代器中是promise实例 方法返回一个promise，一单迭代器中的某一个promise成功或者失败，返回的promise就会成功或失败。"></a>静态方法<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race" target="_blank" rel="noopener"><strong>Promise.race(iterable)</strong></a>，迭代器中是promise实例 方法返回一个promise，一单迭代器中的某一个promise成功或者失败，返回的promise就会成功或失败。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise4 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        resolve(<span class="string">"one"</span>)</span><br><span class="line">    &#125;,<span class="number">500</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> promise5 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        resolve(<span class="string">"two"</span>)</span><br><span class="line">    &#125;,<span class="number">100</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Promise</span>.race([promise4,promise5]).then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value)<span class="comment">//two  哪个迭代器中哪个promise先完成 这里就返回哪一个的值</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="静态方法Promise-all-，Promise-all-iterable-方法返回一个Promise实例-在iterable中的所有promise实例-iterable中也可以不包含-promise-完成后（不管成功或者失败）-才会执行resolve或者reject回调方法，，，只有iterable中全部都成功（resovle）才会回调-Promise-all-的resolve方法，只要iterable中有一个promise实例失败（reject），那么Promise-all-返回的实例就会调用reject（）方法，回调返回的值是-所有iterable中的promsie回调的值的数组集合。"><a href="#静态方法Promise-all-，Promise-all-iterable-方法返回一个Promise实例-在iterable中的所有promise实例-iterable中也可以不包含-promise-完成后（不管成功或者失败）-才会执行resolve或者reject回调方法，，，只有iterable中全部都成功（resovle）才会回调-Promise-all-的resolve方法，只要iterable中有一个promise实例失败（reject），那么Promise-all-返回的实例就会调用reject（）方法，回调返回的值是-所有iterable中的promsie回调的值的数组集合。" class="headerlink" title="静态方法Promise.all()，Promise.all(iterable) 方法返回一个Promise实例, 在iterable中的所有promise实例(iterable中也可以不包含 promise)完成后（不管成功或者失败） 才会执行resolve或者reject回调方法，，，只有iterable中全部都成功（resovle）才会回调 Promise.all()的resolve方法，只要iterable中有一个promise实例失败（reject），那么Promise.all()返回的实例就会调用reject（）方法，回调返回的值是 所有iterable中的promsie回调的值的数组集合。"></a>静态方法<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all" target="_blank" rel="noopener"><strong>Promise.all()</strong></a>，Promise.all(iterable) 方法返回一个Promise实例, 在iterable中的所有promise实例(iterable中也可以不包含 promise)完成后（不管成功或者失败） 才会执行resolve或者reject回调方法，，，只有iterable中全部都成功（resovle）才会回调 Promise.all()的resolve方法，只要iterable中有一个promise实例失败（reject），那么Promise.all()返回的实例就会调用reject（）方法，回调返回的值是 所有iterable中的promsie回调的值的数组集合。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise6 = <span class="built_in">Promise</span>.resolve(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">var</span> promise7 = <span class="number">22</span></span><br><span class="line"><span class="keyword">var</span> promise8 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    setTimeout(resolve,<span class="number">100</span>,<span class="string">'foo'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Promise</span>.all([promise6,promise7,promise8]).then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value) <span class="comment">//[3,22,'foo']</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Promise实例的then-方法，它最多需要有两个参数：Promise-的成功和失败情况的回调函数。第一个参数是成功回调，第二个是失败的回调。"><a href="#Promise实例的then-方法，它最多需要有两个参数：Promise-的成功和失败情况的回调函数。第一个参数是成功回调，第二个是失败的回调。" class="headerlink" title="Promise实例的then()方法，它最多需要有两个参数：Promise 的成功和失败情况的回调函数。第一个参数是成功回调，第二个是失败的回调。"></a>Promise实例的then()方法，它最多需要有两个参数：Promise 的成功和失败情况的回调函数。第一个参数是成功回调，第二个是失败的回调。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  reject(<span class="string">'fail!'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">promise1.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error)<span class="comment">// fail!</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Promise实例的then-方法，它只有一个参数：Promise-失败情况的回调函数。"><a href="#Promise实例的then-方法，它只有一个参数：Promise-失败情况的回调函数。" class="headerlink" title="Promise实例的then()方法，它只有一个参数：Promise 失败情况的回调函数。"></a>Promise实例的then()方法，它只有一个参数：Promise 失败情况的回调函数。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  reject(<span class="string">'fail!'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">promise1.catch(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);<span class="comment">// fail!</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #555;font-size:14px;">---------------- &nbsp; &nbsp;  Thank you for your reading &nbsp; &nbsp; ----------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+      
+        
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/promise/" rel="tag"># promise</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/06/日记：关于电话号码验证不通过的神秘问题/" rel="next" title="日记：关于电话号码验证不通过的神秘问题">
+                <i class="fa fa-chevron-left"></i> 日记：关于电话号码验证不通过的神秘问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="wander">
+          <p class="site-author-name" itemprop="name">wander</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wanderfully" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/wander48551534" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.zhangxinxu.com/" title="张鑫旭" target="_blank">张鑫旭</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#以前看见Promise这个东西，不知道怎么用，总是去看别个教程的demo来理解，而且比较复杂的样子，然后似乎是理解，，但是心里面又不踏实，然后等下一次遇到或者需要用的时候发现并没有彻底弄懂，然后再去看。今天打开MDN过了一片Promise这个api，感觉别个教程写复杂了，想想还是该看文档加以自己的实践来彻底理解它。"><span class="nav-number">1.</span> <span class="nav-text">以前看见Promise这个东西，不知道怎么用，总是去看别个教程的demo来理解，而且比较复杂的样子，然后似乎是理解，，但是心里面又不踏实，然后等下一次遇到或者需要用的时候发现并没有彻底弄懂，然后再去看。今天打开MDN过了一片Promise这个api，感觉别个教程写复杂了，想想还是该看文档加以自己的实践来彻底理解它。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首先来看Promise构造函数，它的形参是两个回调方法，一个resolve（成功情况），一个reject（失败情况），该构造函数所创建的实例会返回一个promise对象，该对象包括then-、catch-、finally-方法，"><span class="nav-number">2.</span> <span class="nav-text">首先来看Promise构造函数，它的形参是两个回调方法，一个resolve（成功情况），一个reject（失败情况），该构造函数所创建的实例会返回一个promise对象，该对象包括then()、catch()、finally()方法，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法-Promise-resolve-value-，Promise-resolve-直接回调了resovle成功方法，然后返回一个promise对象-该对象通过then-可获取回调的值。"><span class="nav-number">3.</span> <span class="nav-text">静态方法 Promise.resolve(value)，Promise.resolve 直接回调了resovle成功方法，然后返回一个promise对象,该对象通过then() 可获取回调的值。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法Promise-reject-value-，Promise-reject-直接回调了reject失败方法，然后返回一个promise对象，该对象通过catch-可获取回调的值"><span class="nav-number">4.</span> <span class="nav-text">静态方法Promise.reject(value)，Promise.reject 直接回调了reject失败方法，然后返回一个promise对象，该对象通过catch() 可获取回调的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法Promise-race-iterable-，迭代器中是promise实例-方法返回一个promise，一单迭代器中的某一个promise成功或者失败，返回的promise就会成功或失败。"><span class="nav-number">5.</span> <span class="nav-text">静态方法Promise.race(iterable)，迭代器中是promise实例 方法返回一个promise，一单迭代器中的某一个promise成功或者失败，返回的promise就会成功或失败。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法Promise-all-，Promise-all-iterable-方法返回一个Promise实例-在iterable中的所有promise实例-iterable中也可以不包含-promise-完成后（不管成功或者失败）-才会执行resolve或者reject回调方法，，，只有iterable中全部都成功（resovle）才会回调-Promise-all-的resolve方法，只要iterable中有一个promise实例失败（reject），那么Promise-all-返回的实例就会调用reject（）方法，回调返回的值是-所有iterable中的promsie回调的值的数组集合。"><span class="nav-number">6.</span> <span class="nav-text">静态方法Promise.all()，Promise.all(iterable) 方法返回一个Promise实例, 在iterable中的所有promise实例(iterable中也可以不包含 promise)完成后（不管成功或者失败） 才会执行resolve或者reject回调方法，，，只有iterable中全部都成功（resovle）才会回调 Promise.all()的resolve方法，只要iterable中有一个promise实例失败（reject），那么Promise.all()返回的实例就会调用reject（）方法，回调返回的值是 所有iterable中的promsie回调的值的数组集合。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise实例的then-方法，它最多需要有两个参数：Promise-的成功和失败情况的回调函数。第一个参数是成功回调，第二个是失败的回调。"><span class="nav-number">7.</span> <span class="nav-text">Promise实例的then()方法，它最多需要有两个参数：Promise 的成功和失败情况的回调函数。第一个参数是成功回调，第二个是失败的回调。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise实例的then-方法，它只有一个参数：Promise-失败情况的回调函数。"><span class="nav-number">8.</span> <span class="nav-text">Promise实例的then()方法，它只有一个参数：Promise 失败情况的回调函数。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wander</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  <script src="/live2d-widget/autoload.js"></script>
+</html>
+
