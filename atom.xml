@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="wanderfully.club/"/>
-  <updated>2019-06-20T10:14:12.853Z</updated>
+  <updated>2019-07-16T02:27:47.446Z</updated>
   <id>wanderfully.club/</id>
   
   <author>
@@ -15,6 +15,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git命令</title>
+    <link href="wanderfully.club/2019/07/16/git%E5%91%BD%E4%BB%A4/"/>
+    <id>wanderfully.club/2019/07/16/git命令/</id>
+    <published>2019-07-16T01:44:07.000Z</published>
+    <updated>2019-07-16T02:27:47.446Z</updated>
+    
+    <content type="html"><![CDATA[<!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --><h3 id="关联远程分支"><a href="#关联远程分支" class="headerlink" title="关联远程分支"></a>关联远程分支</h3><blockquote><p>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:michaelliao/learngit.git</p></blockquote><h3 id="提交到远程分支"><a href="#提交到远程分支" class="headerlink" title="提交到远程分支"></a>提交到远程分支</h3><blockquote><p>git push origin dev  // （git push -u origin master）</p></blockquote><h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><blockquote><p>git branch dev</p></blockquote><h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><blockquote><p>git branch -d <name></name></p></blockquote><h3 id="查看当前本地分支"><a href="#查看当前本地分支" class="headerlink" title="查看当前本地分支"></a>查看当前本地分支</h3><blockquote><p>git branch</p></blockquote><h3 id="查看远程分支"><a href="#查看远程分支" class="headerlink" title="查看远程分支"></a>查看远程分支</h3><blockquote><p>git branch -a</p></blockquote><h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><p>git checkout master</p><h3 id="合并本地分支"><a href="#合并本地分支" class="headerlink" title="合并本地分支"></a>合并本地分支</h3><p>git merge dev</p><h3 id="合并远程分支"><a href="#合并远程分支" class="headerlink" title="合并远程分支"></a>合并远程分支</h3><ul><li>在本地新建一个与远程的dev版本相同(被合并的版本)的dev分支 git checkout -b dev origin/dev</li><li>返回到master版本  git checkout master</li><li>把本地的dev合并到master  git merge dev</li><li>把本地的master同步到远程  git push origin master</li></ul><h3 id="保存当前工作目录"><a href="#保存当前工作目录" class="headerlink" title="保存当前工作目录"></a>保存当前工作目录</h3><p>1 当正在dev分支上开发某个项目，这时项目中出现一个bug，需要紧急修复，但是正在开发的内容只是完成一半，还不想提交，这时可以用git stash命令将修改的内容保存至堆栈区，然后顺利切换到hotfix分支进行bug修复，修复完成后，再次切回到dev分支，从堆栈中恢复刚刚保存的内容。<br>2 由于疏忽，本应该在dev分支开发的内容，却在master上进行了开发，需要重新切回到dev分支上进行开发，可以用git stash将内容保存至堆栈中，切回到dev分支后，再次恢复内容即可。<br>总的来说，git stash命令的作用就是将目前还不想提交的但是已经修改的内容进行保存至堆栈中，后续可以在某个分支上恢复出堆栈中的内容。这也就是说，stash中的内容不仅仅可以恢复到原先开发的分支，也可以恢复到其他任意指定的分支上。git stash作用的范围包括工作区和暂存区中的内容，也就是说没有提交的内容都会保存至堆栈中。</p><blockquote><p>git stash //将所有未提交的（工作区和暂存区）保存到堆栈中，用于后怒恢复当前工作目录<br>git stash list //查看stash中的内容<br>git stash pop //将当前stash暂存的内容弄出来，并应用到当前分支对应的工作目录上（该命令将堆栈中最近保存的内容删除）<br>git stash apply //将当前stash暂存的内容弄出来，并应用到当前分支对应的工作目录上（该命令不会将内容从堆栈中删除，可用于多个分支）<br>git stash drop + 名称 //从栈堆中删除指定stash<br>git stash clear //清除所有<br>git stash show //查看栈堆中最新保存的stash和当前目录的差异（git stash show -p ）查看详细的不同<br>git stash branch //从最新的stash创建分支。<br>应用场景：当储藏了部分工作，暂时不去理会，继续在当前分支进行开发</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --&gt;
+&lt;h3 id=&quot;关联远程分支&quot;&gt;&lt;a href=&quot;#关联远程分支&quot; class=&quot;headerlink&quot; title=&quot;关联远程分支&quot;&gt;&lt;/a&gt;关联远程分支&lt;/h3&gt;&lt;blo
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="wanderfully.club/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="git" scheme="wanderfully.club/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js中的装饰器</title>
+    <link href="wanderfully.club/2019/07/04/js%E4%B8%AD%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
+    <id>wanderfully.club/2019/07/04/js中的装饰器/</id>
+    <published>2019-07-04T09:34:10.000Z</published>
+    <updated>2019-07-04T09:49:18.144Z</updated>
+    
+    <content type="html"><![CDATA[<!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --><h3 id="ES7的装饰器"><a href="#ES7的装饰器" class="headerlink" title="ES7的装饰器"></a>ES7的装饰器</h3><p>js在ES7中加入了装饰器，不过依赖于ES5的 <strong>Object.defineProperty</strong>方法</p><h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><p>Object.defineProperty()方法会直接在一个对象上定义一个新的属性,或者修改一个对象的现有属性， 并返回这个对象。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, prop, descriptor)</span><br></pre></td></tr></table></figure><ul><li>obj：要在其上定义属性的对象。</li><li>prop：要定义或修改的属性的名称。</li><li>descriptor：将被定义或修改的<strong>属性描述符</strong>，</li><li>返回值：被传递给函数的对象</li></ul><p>属性描述</p><ul><li>enumerable：可以是否可枚举</li><li>configurable：是否可删除</li><li>value：对应值</li><li>writable：是否可被重写修改</li><li>get：一个给属性提供 getter 的方法，如果没有 getter 则为 undefined。该方法返回值被用作属性值。默认为 undefined</li><li>一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。该方法将接受唯一参数，并将该参数的新值分配给该属性。默认为 undefined</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --&gt;
+&lt;h3 id=&quot;ES7的装饰器&quot;&gt;&lt;a href=&quot;#ES7的装饰器&quot; class=&quot;headerlink&quot; title=&quot;ES7的装饰器&quot;&gt;&lt;/a&gt;ES7的装饰器&lt;/h3&gt;
+      
+    
+    </summary>
+    
+      <category term="js" scheme="wanderfully.club/categories/js/"/>
+    
+    
+      <category term="js" scheme="wanderfully.club/tags/js/"/>
+    
+      <category term="装饰器" scheme="wanderfully.club/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
+    
+      <category term="ES7" scheme="wanderfully.club/tags/ES7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery中常用的元素查找方法总结</title>
+    <link href="wanderfully.club/2019/06/25/jQuery%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%85%83%E7%B4%A0%E6%9F%A5%E6%89%BE%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    <id>wanderfully.club/2019/06/25/jQuery中常用的元素查找方法总结/</id>
+    <published>2019-06-25T04:23:48.000Z</published>
+    <updated>2019-06-25T06:20:28.191Z</updated>
+    
+    <content type="html"><![CDATA[<!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --><h3 id="层叠选择器"><a href="#层叠选择器" class="headerlink" title="层叠选择器"></a>层叠选择器</h3><ul><li>$(“form input”) 选择所有的form元素中的input元素 </li><li>$(“#main &gt; *”)  选择id值为main的所有的子元素 </li><li>$(“label + input”) 选择所有的label元素的下一个input元素节点，经测试选择器返回的是label标签后面直接跟一个input标签的所有input标签元素 </li><li>$(“#prev ~ div”) 同胞选择器，该选择器返回的为id为prev的标签元素的所有的属于同一个父元素的div标签</li></ul><h3 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a>基本过滤选择器</h3><ul><li>$(“tr:first”) 选择所有tr元素的第一个 </li><li>$(“tr:last”)  选择所有tr元素的最后一个 </li><li>$(“input:not(:checked) + span”)  </li></ul><h3 id="过滤掉：checked的选择器的所有的input元素"><a href="#过滤掉：checked的选择器的所有的input元素" class="headerlink" title="过滤掉：checked的选择器的所有的input元素"></a>过滤掉：checked的选择器的所有的input元素</h3><ul><li>$(“tr:even”)   选择所有的tr元素的第0，2，4… …个元素（注意：因为所选择的多个元素时为数组，所以序号是从0开始） </li><li>$(“tr:odd”)    选择所有的tr元素的第1，3，5… …个元素 </li><li>$(“td:eq(2)”)  选择所有的td元素中序号为2的那个td元素 </li><li>$(“td:gt(4)”)  选择td元素中序号大于4的所有td元素 </li><li>$(“td:ll(4)”)  选择td元素中序号小于4的所有的td元素 </li></ul><h3 id="内容过滤选择器"><a href="#内容过滤选择器" class="headerlink" title="内容过滤选择器"></a>内容过滤选择器</h3><ul><li>$(“div:contains(‘John’)”)    选择所有div中含有John文本的元素 </li><li>$(“td:empty”)                选择所有的为空（也不包括文本节点）的td元素的数组 </li><li>$(“div:has(p)”)              选择所有含有p标签的div元素 </li><li>$(“td:parent”)               选择所有的以td为父节点的元素数组</li></ul><h3 id="属性过滤选择器"><a href="#属性过滤选择器" class="headerlink" title="属性过滤选择器"></a>属性过滤选择器</h3><ul><li>$(“div[id]”)              选择所有含有id属性的div元素 </li><li>$(“input[name=’newsletter’]”)    选择所有的name属性等于’newsletter’的input元素 </li><li>$(“input[name!=’newsletter’]”)   选择所有的name属性不等于’newsletter’的input元素 </li><li>$(“input[name^=’news’]”)         选择所有的name属性以’news’开头的input元素 </li><li>$(“input[name$=’news’]”)         选择所有的name属性以’news’结尾的input元素 </li><li>$(“input[name*=’man’]”)          选择所有的name属性包含’news’的input元素 </li><li>$(“input[id][name$=’man’]”)    可以使用多个属性进行联合选择，该选择器是得到所有的含有id属性并且那么属性以man结尾的元素</li></ul><h3 id="子元素过滤选择器"><a href="#子元素过滤选择器" class="headerlink" title="子元素过滤选择器"></a>子元素过滤选择器</h3><ul><li>$(“ul li:nth-child(2)”),$(“ul li:nth-child(odd)”),$(“ul li:nth-child(3n + 1)”) </li><li>$(“div span:first-child”)   返回所有的div元素的第一个子节点的数组 </li><li>$(“div span:last-child”)    返回所有的div元素的最后一个节点的数组 </li><li>$(“div button:only-child”)  返回所有的div中只有唯一一个子节点的所有子节点的数组</li></ul><h3 id="表单元素选择器"><a href="#表单元素选择器" class="headerlink" title="表单元素选择器"></a>表单元素选择器</h3><ul><li>$(“:input”)       选择所有的表单输入元素，包括input, textarea, select 和 button </li><li>$(“:text”)        选择所有的text input元素 </li><li>$(“:password”)    选择所有的password input元素 </li><li>$(“:radio”)       选择所有的radio input元素 </li><li>$(“:checkbox”)    选择所有的checkbox input元素 </li><li>$(“:submit”)      选择所有的submit input元素 </li><li>$(“:image”)       选择所有的image input元素 </li><li>$(“:reset”)       选择所有的reset input元素 </li><li>$(“:button”)      选择所有的button input元素 </li><li>$(“:file”)        选择所有的file input元素 </li><li>$(“:hidden”)      选择所有类型为hidden的input元素或表单的隐藏域</li></ul><h3 id="表单元素过滤选择器"><a href="#表单元素过滤选择器" class="headerlink" title="表单元素过滤选择器"></a>表单元素过滤选择器</h3><ul><li>$(“:enabled”)   选择所有的可操作的表单元素 </li><li>$(“:disabled”)  选择所有的不可操作的表单元素 </li><li>$(“:checked”)   选择所有的被checked的表单元素 </li><li>$(“select option:selected”) 选择所有的select 的子元素中被selected的元素</li></ul><blockquote><p>选取一个name 为”S_03_22″的input text框的上一个td的text值<br>$(”input[@name =S_03_22]“).parent().prev().text()<br>名字以”S_”开始，并且不是以”<em>R”结尾的<br>$(”input[@name ^=’S</em>‘]“).not(”[@name $=’_R’]“)<br>一个名为radio_01的radio所选的值<br>$(”input[@name =radio_01][@checked]“).val();</p></blockquote><ul><li>$(“A B”) 查找A元素下面的所有子节点，包括非直接子节点</li><li>$(“A&gt;B”) 查找A元素下面的直接子节点</li><li>$(“A+B”) 查找A元素后面的兄弟节点，包括非直接子节点</li><li>$(“A~B”) 查找A元素后面的兄弟节点，不包括非直接子节点</li><li>$(“A B”) 查找A元素下面的所有子节点，包括非直接子节点 </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --&gt;
+&lt;h3 id=&quot;层叠选择器&quot;&gt;&lt;a href=&quot;#层叠选择器&quot; class=&quot;headerlink&quot; title=&quot;层叠选择器&quot;&gt;&lt;/a&gt;层叠选择器&lt;/h3&gt;&lt;ul&gt;
+&lt;li
+      
+    
+    </summary>
+    
+      <category term="jQuery" scheme="wanderfully.club/categories/jQuery/"/>
+    
+    
+      <category term="jq元素查找" scheme="wanderfully.club/tags/jq%E5%85%83%E7%B4%A0%E6%9F%A5%E6%89%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>我所了解的TypeScript</title>
@@ -44,17 +127,16 @@
     <link href="wanderfully.club/2019/06/14/%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%EF%BC%8C%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8/"/>
     <id>wanderfully.club/2019/06/14/工欲善其事，必先利其器/</id>
     <published>2019-06-14T02:12:33.000Z</published>
-    <updated>2019-06-20T04:31:24.603Z</updated>
+    <updated>2019-07-04T09:28:47.710Z</updated>
     
-    <content type="html"><![CDATA[<!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --><h3 id="工具类。"><a href="#工具类。" class="headerlink" title="工具类。"></a>工具类。</h3><ul><li><a href="https://www.fancynode.com.cn/pxcook" target="_blank" rel="noopener"><strong>PxCook</strong></a> ui工具，识别psd，可以快速获取页面元素的尺寸、信息、颜色等，甚至你可以用它生成的css，再也不用去测量元素尺寸了。</li><li><a href="https://www.processon.com/" target="_blank" rel="noopener"><strong>在线画流程图工具</strong></a> 它可以在线画流程图、思维导图、UI原型图、UML、网络拓扑图、组织结构图等等</li><li><a href="https://caniuse.com/" target="_blank" rel="noopener"><strong>can i use</strong></a> 浏览器兼容</li><li><a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener"><strong>图床工具PicGo</strong></a> 生成外链 解决markdown 上放图片问题。</li><li><a href="http://xuanfengge.com/easeing/ceaser/" target="_blank" rel="noopener"><strong>css动画函数预览生成</strong></a> 贝赛尔曲线</li><li><a href="https://www.toptal.com/developers/css/sprite-generator" target="_blank" rel="noopener"><strong>上传图片生成雪碧图</strong></a> css 图片定位也有,很方便</li><li><a href="https://tool.lu/" target="_blank" rel="noopener"><strong>在线工具众多集合</strong></a> 一定有你用得着的(正则、时间、文字加解密等)</li><li><a href="https://cdn.baomitu.com/" target="_blank" rel="noopener">https://cdn.baomitu.com/</a> 和 <a href="https://www.bootcdn.cn/" target="_blank" rel="noopener">https://www.bootcdn.cn/</a> 国内CDN库</li></ul><h3 id="在线代码编辑"><a href="#在线代码编辑" class="headerlink" title="在线代码编辑"></a>在线代码编辑</h3><ul><li><a href="https://jsrun.net/" target="_blank" rel="noopener"><strong>https://jsrun.net/</strong></a> 国内</li></ul><h3 id="编程题库"><a href="#编程题库" class="headerlink" title="编程题库"></a>编程题库</h3><ul><li><a href="https://www.freecodecamp.cn/" target="_blank" rel="noopener"><strong>https://www.freecodecamp.cn/</strong></a> 旧版</li><li><a href="https://www.freecodecamp.one/" target="_blank" rel="noopener"><strong>https://www.freecodecamp.one/</strong></a> 新版</li><li><a href="https://leetcode-cn.com/" target="_blank" rel="noopener"><strong>https://leetcode-cn.com/</strong></a> leetcode中文版</li><li><a href="http://www.acmcoder.com/index" target="_blank" rel="noopener"><strong>http://www.acmcoder.com/index</strong></a> 赛马</li><li><a href="http://www.codecademy.com/" target="_blank" rel="noopener"><strong>http://www.codecademy.com/</strong></a></li></ul>]]></content>
+    <content type="html"><![CDATA[<!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --><h3 id="搭建本地服务（简单，可自动刷新）"><a href="#搭建本地服务（简单，可自动刷新）" class="headerlink" title="搭建本地服务（简单，可自动刷新）"></a>搭建本地服务（简单，可自动刷新）</h3><blockquote><p>安装 lite-server 包即可,修改package.json文件，加入如下语句<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;    </span><br><span class="line">   <span class="string">"dev"</span>: <span class="string">"lite-server"</span></span><br><span class="line"> &#125;,</span><br><span class="line"><span class="comment">//若想更改浏览器端口，新建bs.config.js并写入以下内容</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"port"</span>: <span class="number">8000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></blockquote><h3 id="工具类。"><a href="#工具类。" class="headerlink" title="工具类。"></a>工具类。</h3><ul><li><a href="https://www.fancynode.com.cn/pxcook" target="_blank" rel="noopener"><strong>PxCook</strong></a> ui工具，识别psd，可以快速获取页面元素的尺寸、信息、颜色等，甚至你可以用它生成的css，再也不用去测量元素尺寸了。</li><li><a href="https://www.processon.com/" target="_blank" rel="noopener"><strong>在线画流程图工具</strong></a> 它可以在线画流程图、思维导图、UI原型图、UML、网络拓扑图、组织结构图等等</li><li><a href="https://caniuse.com/" target="_blank" rel="noopener"><strong>can i use</strong></a> 浏览器兼容</li><li><a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener"><strong>图床工具PicGo</strong></a> 生成外链 解决markdown 上放图片问题。</li><li><a href="http://xuanfengge.com/easeing/ceaser/" target="_blank" rel="noopener"><strong>css动画函数预览生成</strong></a> 贝赛尔曲线</li><li><a href="https://www.toptal.com/developers/css/sprite-generator" target="_blank" rel="noopener"><strong>上传图片生成雪碧图</strong></a> css 图片定位也有,很方便</li><li><a href="https://tool.lu/" target="_blank" rel="noopener"><strong>在线工具众多集合</strong></a> 一定有你用得着的(正则、时间、文字加解密等)</li><li><a href="https://cdn.baomitu.com/" target="_blank" rel="noopener">https://cdn.baomitu.com/</a> 和 <a href="https://www.bootcdn.cn/" target="_blank" rel="noopener">https://www.bootcdn.cn/</a> 国内CDN库</li></ul><h3 id="在线代码编辑"><a href="#在线代码编辑" class="headerlink" title="在线代码编辑"></a>在线代码编辑</h3><ul><li><a href="https://jsrun.net/" target="_blank" rel="noopener"><strong>https://jsrun.net/</strong></a> 国内</li></ul><h3 id="编程题库"><a href="#编程题库" class="headerlink" title="编程题库"></a>编程题库</h3><ul><li><a href="https://www.freecodecamp.cn/" target="_blank" rel="noopener"><strong>https://www.freecodecamp.cn/</strong></a> 旧版</li><li><a href="https://www.freecodecamp.one/" target="_blank" rel="noopener"><strong>https://www.freecodecamp.one/</strong></a> 新版</li><li><a href="https://leetcode-cn.com/" target="_blank" rel="noopener"><strong>https://leetcode-cn.com/</strong></a> leetcode中文版</li><li><a href="http://www.acmcoder.com/index" target="_blank" rel="noopener"><strong>http://www.acmcoder.com/index</strong></a> 赛马</li><li><a href="http://www.codecademy.com/" target="_blank" rel="noopener"><strong>http://www.codecademy.com/</strong></a></li></ul>]]></content>
     
     <summary type="html">
     
       
       
         &lt;!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --&gt;
-&lt;h3 id=&quot;工具类。&quot;&gt;&lt;a href=&quot;#工具类。&quot; class=&quot;headerlink&quot; title=&quot;工具类。&quot;&gt;&lt;/a&gt;工具类。&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a 
+&lt;h3 id=&quot;搭建本地服务（简单，可自动刷新）&quot;&gt;&lt;a href=&quot;#搭建本地服务（简单，可自动刷新）&quot; class=&quot;headerlink&quot; title=&quot;搭建本地服务（
       
     
     </summary>
