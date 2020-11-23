@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="wanderfully.top/"/>
-  <updated>2020-08-31T08:11:10.587Z</updated>
+  <updated>2020-11-23T08:32:15.279Z</updated>
   <id>wanderfully.top/</id>
   
   <author>
@@ -17,20 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>h5,ios微信分享</title>
+    <title>微信h5遇到的坑（分享，返回页面）</title>
     <link href="wanderfully.top/2020/07/24/%E8%8B%A6%E9%80%BC%E7%9A%84ios%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB/"/>
     <id>wanderfully.top/2020/07/24/苦逼的ios微信分享/</id>
     <published>2020-07-24T13:08:38.000Z</published>
-    <updated>2020-08-31T08:11:10.587Z</updated>
+    <updated>2020-11-23T08:32:15.279Z</updated>
     
-    <content type="html"><![CDATA[<!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --><h3 id="微信单页面ios分享"><a href="#微信单页面ios分享" class="headerlink" title="微信单页面ios分享"></a>微信单页面ios分享</h3><p>单页面项目的时候，微信Android分享很普通，当微信遇到ios分享时，出现wx.config失败，检查万遍，是配置获取签名的url不正确，解决：第一次进入单页面会出现签名错误，这时候检查一下注册签名的url正不正确（上次一是每进入一个页面会注册签名一次，注册的url是上次一的地址，虽然问题解决了，但好像并不是这样，可以试一哈当前页面地址），特别注意第一次进入页面的签名地址</p>]]></content>
+    <content type="html"><![CDATA[<!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --><h3 id="1、微信单页面ios分享问题"><a href="#1、微信单页面ios分享问题" class="headerlink" title="1、微信单页面ios分享问题"></a>1、微信单页面ios分享问题</h3><p>单页面项目的时候，微信Android分享很普通，当微信遇到ios分享时，出现wx.config失败，检查万遍，是配置获取签名的url不正确，解决：第一次进入单页面会出现签名错误，这时候检查一下注册签名的url正不正确（上次一是每进入一个页面会注册签名一次，注册的url是上次一的地址，虽然问题解决了，但好像并不是这样，可以试一哈当前页面地址），特别注意第一次进入页面的签名地址</p><p><strong>^^^^^^^^^（几天后更新）发现还是有问题，其终极原因是注册时候#  hash符号前面的链接必须和分享时候的# hash符号的名字一样，（当时ios无缘无故第一次进入的时候链接上的时间戳被截取了，然后手动加上才修复了这个分享的问题）</strong></p><h3 id="2、微信返回页面无刷新（授权后调到指定页面，返回后回到授权页面会不刷新，当时做的是返回授权页面如果已授权就返回回上一级页面）"><a href="#2、微信返回页面无刷新（授权后调到指定页面，返回后回到授权页面会不刷新，当时做的是返回授权页面如果已授权就返回回上一级页面）" class="headerlink" title="2、微信返回页面无刷新（授权后调到指定页面，返回后回到授权页面会不刷新，当时做的是返回授权页面如果已授权就返回回上一级页面）"></a>2、微信返回页面无刷新（授权后调到指定页面，返回后回到授权页面会不刷新，当时做的是返回授权页面如果已授权就返回回上一级页面）</h3><p>这个不刷新在Android不存在问题，但是ios会出现，加下面代码ios返回授权页面就会刷新了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onpageshow = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (event.persisted) &#123;</span><br><span class="line">        <span class="built_in">window</span>.location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;!-- 已经写好的文章在对应的md文件头部添加top：{number}即可 数值越大优先级越高 --&gt;
-&lt;h3 id=&quot;微信单页面ios分享&quot;&gt;&lt;a href=&quot;#微信单页面ios分享&quot; class=&quot;headerlink&quot; title=&quot;微信单页面ios分享&quot;&gt;&lt;/a&gt;微信单
+&lt;h3 id=&quot;1、微信单页面ios分享问题&quot;&gt;&lt;a href=&quot;#1、微信单页面ios分享问题&quot; class=&quot;headerlink&quot; title=&quot;1、微信单页面ios分
       
     
     </summary>
